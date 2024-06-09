@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Layout from "./layout/Layout";
+import PhotoCollage from "./components/Sections/PhotoCollage/PhotoCollage";
+import TripInfoCardBlock from "./components/Sections/TripInfoCardBlock/TripInfoCardBlock";
+import CommentCard from "./components/Sections/Informations/Highlights";
+import FlightSection from "./components/Sections/FlightSection/FlightSection";
+import { regions } from "./components/RegionsData/RegionsData";
+import InformationRegionContainer from "./components/InformationAboutRegion/InformationRegionContainer";
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <PhotoCollage />
+      <TripInfoCardBlock />
+      <div className="pt-8">
+        <CommentCard />
+      </div>
+      <div className="pt-8">
+        <FlightSection />
+      </div>
+      {regions.map((region) => (
+        <div key={region.name} className="pt-2">
+          <InformationRegionContainer region={region} />
+        </div>
+      ))}
+    </Layout>
   );
-}
+};
 
 export default App;
