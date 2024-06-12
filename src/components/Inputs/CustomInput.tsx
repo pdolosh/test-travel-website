@@ -20,7 +20,7 @@ const CustomInput: React.FC<CustomInputProps> = ({
   startIcon,
 }) => {
   return (
-    <div className="flex items-center py-2 px-2 rounded-xl border text-gray-500 bg-white gap-2">
+    <div className="flex items-center py-2 px-2 rounded-xl border text-gray-500 bg-white">
       {startIcon && <div className="flex-shrink-0">{startIcon}</div>}
       <input
         type={type}
